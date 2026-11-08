@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#0b1020">
+  <title>VII C • Portal Kelas</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="auth-wrap" id="loginView">
+    <section class="panel login-panel">
+      <div class="brand-mark">VII C</div>
+      <p class="eyebrow">PORTAL KELAS</p>
+      <h1>Selamat datang</h1>
+      <p class="muted">Masuk menggunakan akun yang diberikan admin.</p>
+      <form id="loginForm">
+        <label>Email<input id="email" type="email" autocomplete="username" required placeholder="nama@email.com"></label>
+        <label>Password<input id="password" type="password" autocomplete="current-password" required placeholder="Password"></label>
+        <button class="primary" type="submit">Masuk</button>
+        <p id="loginError" class="error" role="alert"></p>
+      </form>
+      <p class="tiny muted">Akun dibuat oleh admin. Pendaftaran umum tidak tersedia.</p>
+    </section>
+  </main>
+
+  <div id="appView" class="app hidden">
+    <aside class="sidebar">
+      <div class="brand"><span class="brand-mark small">VII C</span><div><b>Portal Kelas</b><small>Manajemen kelas</small></div></div>
+      <nav>
+        <button class="nav-btn active" data-page="home">⌂ <span>Beranda</span></button>
+        <button class="nav-btn" data-page="attendance">▦ <span>Presensi</span></button>
+        <button class="nav-btn" data-page="duty">✓ <span>Jadwal Piket</span></button>
+        <button class="nav-btn" data-page="announcements">▤ <span>Pengumuman</span></button>
+        <button class="nav-btn" data-page="cash">◈ <span>Uang Kas</span></button>
+        <button class="nav-btn" data-page="notifications">♧ <span>Notifikasi</span><span id="noticeCount" class="count"></span></button>
+        <button class="nav-btn admin-only hidden" data-page="admin">⚙ <span>Panel Admin</span></button>
+      </nav>
+      <div class="sidebar-bottom"><div id="userLabel" class="user-label"></div><button id="logoutBtn" class="logout">Keluar ↗</button></div>
+    </aside>
+    <main class="content">
+      <header class="topbar"><div><p class="eyebrow">KELAS VII C</p><h1 id="pageTitle">Beranda</h1></div><div class="top-actions"><span id="rolePill" class="pill">Siswa</span><button class="icon-btn" data-goto="notifications" aria-label="Notifikasi">♧</button></div></header>
+      <div id="pageContent"></div>
+      <p class="footer-note">Portal Kelas VII C • Data dikelola oleh admin kelas</p>
+    </main>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="config.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
